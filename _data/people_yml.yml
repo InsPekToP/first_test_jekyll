@@ -1,0 +1,9 @@
+- name: "InsPekToP"
+  occupation: "Magazyner"
+  source: "yaml"
+
+- name: "GZU"
+  occupation: "Freelance"
+
+- name: "Mike"
+  occupation: "Giraffe Academy"

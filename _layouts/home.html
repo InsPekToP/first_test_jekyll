@@ -1,0 +1,99 @@
+<video
+    style="width:200px; height:200px; object-fit:cover;"
+    controls
+>
+    <source src="/assets/video/grok_NewYear2.mp4" type="video/mp4">
+</video>
+
+
+
+{% for file in site.static_files %}
+    {% if file.video %}
+        <video
+            src="{{ file.path }}"
+            style="width:200px; height:200px; object-fit:cover;"
+            controls
+        ></video>
+    {% endif %}
+{% endfor %}
+
+
+
+{% for file in site.static_files %}
+    {% if file.image %}
+        <img
+            src="{{ file.path }}"
+            alt="{{ file.name }}" 
+            style="width:200px; height:200px; object-fit:cover;"
+        >
+    {% endif %}
+{%endfor%}
+
+
+
+{% for file in site.static_files %}
+    Путь---
+    {{ file.path }}
+    Имя---
+    {{ file.name }}
+    Имя без расширения ----
+    {{ file.basename }}
+    Расширение ----
+    {{ file.extname }}
+{%endfor%}
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Путь</th>
+            <th>Имя файла</th>
+            <th>Имя без расширения</th>
+            <th>Расширение</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in site.static_files %}
+        <tr>
+            <td>{{ file.path }}</td>
+            <td>{{ file.name }}</td>
+            <td>{{ file.basename }}</td>
+            <td>{{ file.extname }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{{site.data.people_yml}}
+<hr><br>
+
+{% for person in site.data.people_yml %}
+    {{person.name}} -> {{person.occupation}} \|/
+{% endfor %}
+<hr><br>
+
+{{site.data.people_json}}
+<hr><br>
+
+{{site.data.people_csv}}
+<hr><br>
+
+
+
+{% for post in site.posts %}
+    <li>
+        <a href="{{post.url}}">{{post.title}}</a>
+        <hr> <br>
+    </li>  
+{% endfor %}
+
+{% for pages in site.pages %}
+    <li>
+        <a href="{{pages.url}}">{{pages.title}}</a>
+        <hr> <br>
+    </li>
+{% endfor %}
+
+

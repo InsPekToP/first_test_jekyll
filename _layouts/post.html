@@ -1,0 +1,35 @@
+---
+layout: "wrapper"
+author: "InsPekToP"
+---
+
+{% if page.title == "New title Welcome to Jekyll!" %}
+    Это потрясающий титул из условных операторов if page.title ==
+{% elsif page.title == "Новый титул for elsif" %}
+    Условный оператор elsif
+{% else %}
+    Оператор else
+{% endif %}
+
+<a href="/">Главная</a>
+
+{% for page in site.pages  %}
+<li>
+    <a href="{{page.url}}">{{page.title}}</a>
+</li>
+{% endfor %}
+
+
+{% for post in site.posts  %}
+<li>
+    <a style="{% if page.url == post.url %}color:red{% endif %}" href="{{post.url}}">{{post.title}}</a>
+</li>
+{% endfor %}
+
+
+<h1>Это пост из _layouts</h1>
+<h3>{{ layout.author }}</h3>
+<h3>{{ page.title }}</h3>
+<h3>{{ page.author }}</h3>
+
+{{ content }}
